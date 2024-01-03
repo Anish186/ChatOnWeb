@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %} ChatOn: Home {% endblock %} {% block
+style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index_style.css') }}"
+  type="text/css"
+/>
+{% endblock %} {% block nav_links %}
+<a href="{{ url_for('index') }}" class="mobile_hide">Home</a>
+<a href="{{ url_for('about') }}" class="mobile_hide">About</a>
+<a href="{{ url_for('feedback') }}" class="mobile_hide">Feedback</a>
+<a href="{{ url_for('login') }}" class="mobile_hide">Login</a>
+{% endblock %} {% block content %}
+<div class="main">
+  <section>
+    <div class="holder">
+      <div class="blob_1">
+        <h1 class="intro">
+          Hello, <br />
+          Welcome to ChatOn!
+        </h1>
+        <h2 class="intro1">
+          This is a simple chatting application, <br />
+          Where you can chat in a public lobby.
+        </h2>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

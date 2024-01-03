@@ -1,0 +1,166 @@
+{% extends 'base.html' %} {% block title %} ChatOn {% endblock %} {% block
+nav_links %}
+<a href="{{ url_for('index') }}" class="log_out" id="log_out">Log Out</a>
+{% endblock %} {% block style %}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"
+  integrity="sha512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<style>
+  * {
+    font-family: sans-serif;
+  }
+  body {
+    background-color: rgb(54, 144, 246);
+  }
+  .container {
+    overflow-y: scroll;
+    margin-top: 230px;
+    padding: 8px;
+    margin-left: 430px;
+    border-radius: 10px;
+    width: 43%;
+    text-align: left;
+    height: 350px;
+    background-color: rgb(255, 255, 255);
+  }
+  #message {
+    margin-top: 5px;
+    margin-left: 433px;
+    width: 38%;
+    border: 4px solid rgba(255, 204, 37, 0.948);
+    padding: 7px;
+    border-radius: 4px;
+    color: rgb(54, 144, 246);
+    font-weight: bold;
+    outline: none;
+  }
+  #msg {
+    font-size: 18px;
+    color: rgb(255, 204, 37);
+    font-weight: bold;
+  }
+  #btn {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    width: 69px;
+    height: 38px;
+    text-align: center;
+    padding: 7px;
+    background-color: rgb(255, 204, 37);
+    border: none;
+    border-radius: 4px;
+    transition: 1s;
+  }
+  #btn:hover {
+    background-color: rgb(200, 167, 61);
+    border-radius: 10px;
+    transition: 0.5s;
+  }
+  .fill {
+    margin-top: 5px;
+    margin-left: 435px;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    border: 4px solid rgb(255, 204, 37);
+    color: rgb(255, 48, 48);
+    background-color: white;
+  }
+  .blob1 {
+    position: absolute;
+    padding: 140px;
+    bottom: 10%;
+    border-radius: 35% 65% 48% 52% / 68% 33% 67% 32%;
+    left: 5%;
+    background-color: rgb(255, 204, 37);
+    transition: 2s;
+  }
+  .blob1:hover {
+    border-radius: 23% 77% 17% 83% / 80% 20% 80% 20%;
+    background-color: white;
+    transition: 1s;
+  }
+  .blob2 {
+    position: absolute;
+    padding: 100px;
+    bottom: 30%;
+    border-radius: 35% 65% 48% 52% / 68% 33% 67% 32%;
+    left: 80%;
+    background-color: rgb(255, 204, 37);
+    transition: 2s;
+  }
+  .blob2:hover {
+    border-radius: 23% 77% 17% 83% / 80% 20% 80% 20%;
+    background-color: white;
+    transition: 1s;
+  }
+  @media (max-width: 90em) {
+    .container {
+      margin-top: 175px;
+    }
+  }
+</style>
+{% endblock %} {% block content %}
+<script type="text/javascript">
+  $(document).ready(function () {
+    var socket = io.connect(host);
+    var input = document.getElementById("message");
+    var user = "{{user}}";
+    var host = "{{host}}";
+    var log_out = document.getElementById("log_out")
+
+    socket.on("connect", function () {
+      socket.send(user + " has connected!");
+    });
+
+    log_out.onclick = out;
+
+    function out() {
+      alert("logging out!")
+      socket.send(user + " has disconnected!");
+    }
+
+    socket.on("message", function (data) {
+      $("#msg").append($("<p>").text(data));
+    });
+
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btn").click();
+      }
+    });
+
+    $("#btn").on("click", function () {
+      if ($("#message").val() === "") {
+        const fill = document.querySelector(".fill");
+        fill.style.display = "flex";
+      } else {
+        const fill = document.querySelector(".fill");
+        fill.style.display = "none";
+        socket.send(user + ": " + $("#message").val());
+        $("#message").val("");
+      }
+    });
+  });
+</script>
+<div class="container">
+  <div id="msg"></div>
+</div>
+<input type="text" id="message" placeholder="message" />
+<button type="button" id="btn">Send</button>
+<div class="fill">
+  <p><strong>**Please enter a message!</strong></p>
+</div>
+<div class="blob1"></div>
+<div class="blob2"></div>
+{% endblock %}

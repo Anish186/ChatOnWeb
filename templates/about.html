@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>ChatOn: About</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/about_style.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/favicon.png') }}"
+      sizes="180x180"
+    />
+  </head>
+  <body>
+    <div class="about_info">
+      <h1>
+        Hi I am
+        <h1 class="name">Anish Vadlamani (AV),</h1>
+      </h1>
+      <h1 class="h1_for_about">
+        MYP 10 (Grade 10) student of the International High School of the
+        Gothenburg Region, Sweden.
+      </h1>
+    </div>
+    <div class="info_box">
+      <h2>
+        AV is an enthusiastic student in learning new things which can create
+        impact for better sustainability living for both environment and living
+        beings. His interests in Robo’s from childhood made him excited to learn
+        more about its artificial intelligence, execution, and processes. This
+        steered to begin exploring more about AI and Data it’s analytics, which
+        led to start with looking into programming languages. AV is now keen in
+        learning Python language as a start point of this long journey aiming
+        towards research in Data, AI and Robotics stretch path. AV’s other
+        interests include reading books, arts, and some dance moves. In his free
+        time, he likes to go swimming, playing football & badminton and has
+        interest in spending time with family and friends. Feel free to provide
+        your feedback or discuss any of the above topics with me.<br><span>#AV4AI</span>
+      </h2>
+      <div class="btn">
+        <a href="{{ url_for('index') }}"><button type="submit">Home</button></a>
+        <a href="{{ url_for('feedback') }}"
+          ><button type="submit">Feedback</button></a
+        >
+      </div>
+    </div>
+    <div class="images">
+      <img
+        src="{{ url_for('static', filename='images/img_for.png') }}"
+        class="pimg"
+      />
+    </div>
+  </body>
+</html>

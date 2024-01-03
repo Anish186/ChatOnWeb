@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% block title %} ChatOn: Login {% endblock %} {%
+block style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/login_style.css') }}"
+  type="text/css"
+/>
+{% endblock %} {% block nav_links %}
+<a href="{{ url_for('index') }}" class="home">Home</a>
+<a href="{{ url_for('about') }}" class="about">About</a>
+<a href="{{ url_for('feedback') }}">Feedback</a>
+{% endblock %} {% block content %}
+<div id="container">
+  <h2>Login</h2>
+  <form action="{{ url_for('login') }}" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required /><br />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required />
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <span>{{msg}}</span>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <br />
+    <input type="submit" value="Submit" /><br />
+  </form>
+  <h3>
+    Don't have an account?
+    <a class="login_a" href="{{ url_for('register') }}">Register</a>
+  </h3>
+</div>
+<div class="blob_1"></div>
+<div class="blob_2"></div>
+<div class="blob_3"></div>
+{% endblock %}

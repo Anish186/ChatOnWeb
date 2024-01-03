@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ChatOn: Feedback
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/feedback_style.css') }}" type="text/css">
+{% endblock %}
+{% block nav_links %}
+<a href="{{ url_for('index') }}" class="mobile_hide">Home</a>
+<a href="{{ url_for('login') }}" class="mobile_hide">Login</a>
+{% endblock %}
+{% block content %}
+<div class="holder">
+    <div class="title">
+        <h1>Feedback Form</h1>
+    </div>  
+    <div class="form">
+        <form action="{{ url_for('feedback') }}" method="POST">
+            <div class="row">
+                <div class="group">
+                    <label for="name" id="name">Name</label><br>
+                    <input type="text" id="name_inp" name="name" required><br><br>
+
+                    <label for="email" id="email">Email</label><br>
+                    <input type="email" id="email_inp" name="email" required><br><br>
+
+                    <label for="feedback" id="feedback">Feedback</label><br>
+                    <input type="text" id="feedback_inp" name="feedback" required></input><br><br>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for msg in messages %}
+                                <span>{{msg}}</span>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <input type="submit" value="Submit" class="btn"><br>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

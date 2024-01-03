@@ -1,0 +1,51 @@
+body {
+  overflow: hidden;
+}
+.holder {
+  padding-top: 10px;
+  padding-right: 100px;
+}
+.blob_1 {
+  background-color: rgba(250, 198, 27, 0.948);
+  max-width: 69%;
+  max-height: 69%;
+  padding: 100px;
+  border-radius: 80% 20% 72% 28% / 31% 68% 32% 69%;
+  transition: 1.3s;
+}
+.blob_1:hover {
+  border-radius: 44% 56% 72% 28% / 57% 38% 62% 43%;
+  transition: 0.8s;
+}
+.main {
+  color: rgb(255, 255, 255);
+  padding-left: 150px;
+  padding-top: 169px;
+}
+
+.intro {
+  animation: slideinleft 1s ease-in 0 1 normal none;
+  font-size: 43px;
+  line-height: 60px;
+}
+.intro1 {
+  animation: slideinleft 2s ease-in 0 1 normal none;
+  font-size: 33px;
+  line-height: 40px;
+}
+
+@media (max-width: 90em) {
+  .intro {
+    font-size: 40px;
+    line-height: 38px;
+  }
+  .intro1 {
+    font-size: 30px;
+    line-height: 33px;
+  }
+  .intro2 {
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

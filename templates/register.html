@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block title %} ChatOn: Register {% endblock %} {%
+block style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/register_style.css') }}"
+  type="text/css"
+/>
+{% endblock %} {% block nav_links %}
+<a href="{{ url_for('index') }}" class="mobile_hide">Home</a>
+<a href="{{ url_for('about') }}" class="mobile_hide">About</a>
+<a href="{{ url_for('feedback') }}">Feedback</a>
+{% endblock %} {% block content %}
+<div id="container">
+  <h2>Register</h2>
+  <form action="{{ url_for('register') }}" method="POST">
+    <label for="email"
+      >Email <span>(Please enter a valid email address!)</span></label
+    >
+    <input type="text" id="email" name="email" required />
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for msg in messages %}
+          <span>{{msg}}</span>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required /><br />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required /><br />
+    <div class="terms">
+      <input type="checkbox" id="checkbox" name="checkbox" required />
+      <label for="agree"
+        >By checking this box, you agree to let us collect your user
+        data.</label
+      >
+    </div>
+    <br /><input type="submit" value="Submit" id="btn" /><br />
+  </form>
+  <h3>
+    Already have an account?
+    <a class="register_a" href="{{ url_for('login') }}">Login</a>
+  </h3>
+</div>
+<div class="blob_1"></div>
+<div class="blob_2"></div>
+<div class="blob_3"></div>
+{% endblock %}

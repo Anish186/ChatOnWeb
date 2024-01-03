@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(250, 198, 27, 0.948);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+form {            
+    max-width: 400px;
+    margin: 10% auto;   
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.345);
+    border: 5px solid rgb(54, 144, 246);
+    border-radius: 10px;
+}
+.info {
+    font-size: 16px;
+    font-weight: 300;
+}
+label {
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 2px solid rgb(54, 144, 246);
+    border-radius: 5px;
+    outline: none;
+}
+button {
+    background-color: rgb(54, 144, 246);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: rgba(250, 198, 27, 0.948);
+    transition: 0.5s;
+}
+span {
+    color: rgb(54, 144, 246);
+    font-size: 13px;
+    font-weight: bold;
+}  
+.blob_1 {
+    background-color: rgb(54, 144, 246);
+    position: absolute;
+    padding: 5%;
+    bottom: 30%;
+    left: 10%;
+    border-radius: 55% 45% 41% 59% / 68% 60% 40% 32%;
+    transition: 1.5s;
+}
+.blob_1:hover {
+    background-color: white;
+    border-radius: 60% 40% 83% 17% / 70% 19% 81% 30%;
+    transition: 1s;
+}
+.blob_2 {
+    background-color: rgb(54, 144, 246);
+    position: absolute;
+    padding: 7%;
+    bottom: 55%;
+    left: 76%;
+    border-radius: 69% 31% 72% 28% / 26% 78% 22% 74%;
+    transition: 1.5s;
+}
+.blob_2:hover {
+    background-color: white;
+    border-radius: 37% 63% 53% 47% / 66% 49% 51% 34%;
+    transition: 1s;
+}
+.blob_3 {
+    background-color: rgb(54, 144, 246);
+    position: absolute;
+    padding: 6%;
+    bottom: 6%;
+    left: 40%;
+    border-radius: 69% 31% 41% 59% / 26% 78% 22% 74%;
+    transition: 1.5s;
+}
+.blob_3:hover {
+    background-color: white;
+    border-radius: 14% 86% 12% 88% / 66% 15% 85% 34%;
+    transition: 1s;
+}
+.blob_4 {
+    background-color: rgb(54, 144, 246);
+    position: absolute;
+    padding: 3%;
+    bottom: 82%;
+    left: 30%;
+    border-radius: 55% 45% 41% 59% / 68% 28% 72% 32%;
+    transition: 1.5s;
+}
+.blob_4:hover {
+    padding: 4%;
+    background-color: white;
+    border-radius: 69% 31% 53% 47% / 66% 49% 51% 34%;
+    transition: 1s;
+}

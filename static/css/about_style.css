@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: rgb(58, 127, 255);
+  color: white;
+  overflow: hidden;
+  padding-top: 10px;
+}
+.name {
+  color: rgba(250, 198, 27, 0.948);
+}
+.about_info {
+  padding: 30px 40px;
+}
+h1 {
+  width: 30%;
+  font-size: 35px;
+  font-weight: 600;
+}
+.h1_for_about {
+  font-size: 15px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+h2 {
+  font-size: 17px;
+}
+.info_box {
+  text-align: left;
+  padding: 70px;
+  margin-left: 10px;
+  width: 930px;
+  height: 445px;
+  background-color: rgba(250, 198, 27, 0.948);
+  border-radius: 12% 88% 43% 57% / 81% 25% 75% 19% ;
+  line-height: 160%;
+  transition: 1s;
+}
+.info_box:hover {
+  border-radius: 16% 84% 30% 70% / 70% 11% 89% 30%;
+  transition: 0.5s;
+}
+.btn {
+  padding-left: 10px;
+  padding-top: 5px;
+}
+button {
+  align-items: center;
+  padding: 10px 20px;
+  margin: 8px 15px;
+  background-color: white;
+  color: rgb(58, 127, 255);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  transition: 1s;
+}
+
+button:hover {
+  background-color: rgb(58, 127, 255);
+  color: white;
+  transition: 0.5s;
+}
+img {
+  height: auto;
+  width: 680px;
+  position: absolute;
+  left: 62%;
+  bottom: 30px;
+  border-radius: 90%;
+  transform: translateX(-55%);
+}
+.images {
+  bottom: 350px;
+  position: relative;
+  background-color: white;
+  height: 22%;
+  width: 24%;
+  left: 70%;
+  border-radius: 70% 30% 82% 18% / 32% 66% 34% 68%;
+}
+span {
+  color: rgb(58, 127, 255);
+}
